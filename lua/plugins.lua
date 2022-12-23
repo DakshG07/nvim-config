@@ -1,4 +1,4 @@
-return {
+local plugins =  {
   {
     "catppuccin/nvim",
     name = "catppuccin",
@@ -109,3 +109,5 @@ return {
     end,
   },
 }
+-- Install plugins
+require("lazy").setup(plugins)

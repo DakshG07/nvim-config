@@ -25,8 +25,7 @@ vim.o.shiftwidth = 2
 vim.o.tabstop = 2
 vim.o.softtabstop = 0
 vim.o.expandtab = true
--- Install plugins
-require("lazy").setup(require('lua.plugins'))
+pcall(require, "plugins")
 -- Colorscheme
 vim.g.catppuccin_flavour = "mocha"
 vim.cmd.colorscheme "catppuccin"
