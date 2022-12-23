@@ -54,11 +54,9 @@ vim.keymap.set('n', '<leader>ht', '<cmd>NvimTreeClose<CR>') -- Hide tree
 -- ToggleTerm
 local Terminal  = require('toggleterm.terminal').Terminal
 local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
-
 function _Lazygit_toggle()
   lazygit:toggle()
 end
-
 vim.keymap.set('n', '<leader>gg', '<cmd>lua _Lazygit_toggle()<CR>', {noremap = true, silent = true}) -- LazyGit
 vim.keymap.set('n', '<leader>tf', '<cmd>:ToggleTerm direction=float<CR>', {noremap = true, silent = true}) -- Terminal Floating
 vim.keymap.set('n', '<leader>lt', '<cmd>:ToggleTerm <CR>', {noremap = true, silent = true}) -- Little Terminal
