@@ -12,6 +12,12 @@ if not vim.loop.fs_stat(lazypath) then
 end
 -- True colors
 vim.o.termguicolors = true
+vim.cmd [[highlight IndentBlanklineIndent1 guifg=#F38BA8 gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent2 guifg=#FAB387 gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent3 guifg=#F9E2Af gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent4 guifg=#A6E3A1 gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent5 guifg=#89B4FA gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent6 guifg=#B4BEFE gui=nocombine]]
 -- Line numbers
 vim.o.mouse = "nv"
 vim.o.number = true
