@@ -58,4 +58,4 @@ function _Lazygit_toggle()
 end
 vim.keymap.set('n', '<leader>gg', '<cmd>lua _Lazygit_toggle()<CR>', {noremap = true, silent = true}) -- LazyGit
 vim.keymap.set('n', '<leader>tf', '<cmd>:ToggleTerm direction=float<CR>', {noremap = true, silent = true}) -- Terminal Floating
-vim.keymap.set('n', '<leader>lt', '<cmd>:ToggleTerm <CR>', {noremap = true, silent = true}) -- Little Terminal
+vim.keymap.set('n', '<leader>to', '<cmd>:ToggleTerm <CR>', {noremap = true, silent = true}) -- Terminal Open
