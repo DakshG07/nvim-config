@@ -20,6 +20,7 @@ local plugins =  {
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-nvim-lua',
+      'onsails/lspkind.nvim',
 
       -- Snippets
       'L3MON4D3/LuaSnip',
@@ -27,9 +28,26 @@ local plugins =  {
     },
     config = function()
       local lsp = require('lsp-zero')
-      lsp.preset('recommended')
+      lsp.preset('lsp-compe')
       lsp.nvim_workspace()
       lsp.setup()
+      local cmp = require('cmp')
+      local cmp_config = lsp.defaults.cmp_config({
+        window = {
+          completion = cmp.config.window.bordered()
+        },
+        formatting = {
+          fields = { "kind", "abbr", "menu" },
+          format = function(entry, vim_item)
+            local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+            local strings = vim.split(kind.kind, "%s", { trimempty = true })
+            kind.kind = " " .. strings[1] .. " "
+            kind.menu = "    (" .. strings[2] .. ")"
+            return kind
+          end,
+        },
+      })
+      cmp.setup(cmp_config)
     end,
   },
   {
@@ -108,6 +126,14 @@ local plugins =  {
       })
     end,
   },
+  {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup()
+    end
+  },
 }
 -- Install plugins
-require("lazy").setup(plugins)
+require("lazy").setup(plugins, {
+  install = { colorscheme = { "catppuccin" } }
+})
