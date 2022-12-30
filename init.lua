@@ -50,6 +50,7 @@ vim.keymap.set('n', '<leader>fd', builtin.diagnostics)
 vim.keymap.set('n', '<leader>ld', '<cmd>Lspsaga show_line_diagnostics<CR>')
 vim.keymap.set('n', '<leader>ca', '<cmd>Lspsaga code_action<CR>')
 vim.keymap.set('n', '<leader>hd', '<cmd>Lspsaga hover_doc<CR>')
+vim.keymap.set('n', '<leader>gr', '<cmd>Lspsaga rename<CR>')
 -- Trouble
 vim.keymap.set('n', '<leader>td', '<cmd>TroubleToggle<CR>')
 -- NvimTree
@@ -65,3 +66,8 @@ end
 vim.keymap.set('n', '<leader>gg', '<cmd>lua _Lazygit_toggle()<CR>', {noremap = true, silent = true}) -- LazyGit
 vim.keymap.set('n', '<leader>tf', '<cmd>:ToggleTerm direction=float<CR>', {noremap = true, silent = true}) -- Terminal Floating
 vim.keymap.set('n', '<leader>to', '<cmd>:ToggleTerm <CR>', {noremap = true, silent = true}) -- Terminal Open
+-- Clipboard
+vim.keymap.set('n', '<leader>p', '"+p') -- Paste
+vim.keymap.set('v', '<leader>p', '"+p')
+vim.keymap.set('n', '<leader>y', '"+y') -- Yank
+vim.keymap.set('v', '<leader>y', '"+y')

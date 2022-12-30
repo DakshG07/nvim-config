@@ -57,6 +57,15 @@ local plugins =  {
         with_sync = true
       })
     end,
+    config = function()
+      require('nvim-treesitter.configs').setup({
+        ensure_installed = { 'go', 'python', 'lua', 'rust'},
+        auto_install = true,
+        highlight = {
+          enable = true,
+        },
+      })
+    end,
   },
   {
     'akinsho/bufferline.nvim',
@@ -149,6 +158,12 @@ local plugins =  {
         },
       })
     end
+  },
+  {
+    'windwp/nvim-autopairs',
+    config = function()
+      require('nvim-autopairs').setup()
+    end,
   },
 }
 -- Install plugins
