@@ -165,6 +165,12 @@ local plugins =  {
       require('nvim-autopairs').setup()
     end,
   },
+  {
+    'rcarriga/nvim-notify',
+    config = function()
+      vim.notify = require("notify")
+    end
+  }
 }
 -- Install plugins
 require("lazy").setup(plugins, {

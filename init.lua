@@ -36,9 +36,11 @@ pcall(require, "plugins")
 vim.g.catppuccin_flavour = "mocha"
 vim.cmd.colorscheme "catppuccin"
 -- Keymaps
-vim.keymap.set("n", "L", "<cmd>bnext<CR>")
-vim.keymap.set("n", "H", "<cmd>bprevious<CR>")
-vim.keymap.set("n", "<leader>c", ":bdelete<CR>")
+vim.keymap.set("n", "L", "<cmd>BufferLineCycleNext<CR>")
+vim.keymap.set("n", "H", "<cmd>BufferLineCyclePrev<CR>")
+vim.keymap.set("n", ">b", "<cmd>BufferLineMoveNext<CR>")
+vim.keymap.set("n", "<b", "<cmd>BufferLineMovePrev<CR>")
+vim.keymap.set("n", "<leader>c", "<cmd>bdelete<CR>")
 -- Telescope
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files)
@@ -50,7 +52,7 @@ vim.keymap.set('n', '<leader>fd', builtin.diagnostics)
 vim.keymap.set('n', '<leader>ld', '<cmd>Lspsaga show_line_diagnostics<CR>')
 vim.keymap.set('n', '<leader>ca', '<cmd>Lspsaga code_action<CR>')
 vim.keymap.set('n', '<leader>hd', '<cmd>Lspsaga hover_doc<CR>')
-vim.keymap.set('n', '<leader>gr', '<cmd>Lspsaga rename<CR>')
+vim.keymap.set('n', '<leader>lr', '<cmd>Lspsaga rename<CR>')
 -- Trouble
 vim.keymap.set('n', '<leader>td', '<cmd>TroubleToggle<CR>')
 -- NvimTree
