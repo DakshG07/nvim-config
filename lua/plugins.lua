@@ -2,8 +2,17 @@ local plugins =  {
   {
     "catppuccin/nvim",
     name = "catppuccin",
+    lazy = false,
+    priority = 1000,
     config = function()
-      require("catppuccin").setup()
+      require("catppuccin").setup({
+        color_overrides = {
+          mocha = {
+            mantle = "#1e1e2e",
+            crust = "#1e1e2e",
+          },
+        }
+      })
     end,
   },
   {

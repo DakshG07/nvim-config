@@ -41,7 +41,7 @@ vim.keymap.set("n", "H", "<cmd>BufferLineCyclePrev<CR>")
 vim.keymap.set("n", ">b", "<cmd>BufferLineMoveNext<CR>")
 vim.keymap.set("n", "<b", "<cmd>BufferLineMovePrev<CR>")
 vim.keymap.set("n", "<leader>bp", "<cmd>BufferLinePick<CR>")
-vim.keymap.set("n", "<leader>c", "<cmd>BufferLinePickClose<CR>")
+vim.keymap.set("n", "<leader>c", "<cmd>bdelete<CR>")
 -- Telescope
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files)
