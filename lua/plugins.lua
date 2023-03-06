@@ -48,12 +48,21 @@ local plugins =  {
         formatting = {
           fields = { "kind", "abbr", "menu" },
           format = function(entry, vim_item)
-            local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+            local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50, symbol_map = { Copilot = "" }, })(entry, vim_item)
             local strings = vim.split(kind.kind, "%s", { trimempty = true })
             kind.kind = " " .. strings[1] .. " "
             kind.menu = "    (" .. strings[2] .. ")"
             return kind
           end,
+        },
+        sources = {
+          -- Copilot
+          { name = "copilot" },
+          -- Defaults
+          { name = 'path' },
+          { name = 'nvim_lsp' },
+          { name = 'buffer', keyword_length = 3 },
+          { name = 'luasnip', keyword_length = 2 },
         },
       })
       cmp.setup(cmp_config)
@@ -178,8 +187,28 @@ local plugins =  {
     'rcarriga/nvim-notify',
     config = function()
       vim.notify = require("notify")
-    end
-  }
+    end,
+  },
+  {
+    'zbirenbaum/copilot.lua',
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function() 
+      require('copilot').setup({
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+      })
+    end,
+  },
+  {
+    'zbirenbaum/copilot-cmp',
+    dependencies = {
+      'zbirenbaum/copilot.lua',
+    },
+    config = function()
+      require('copilot_cmp').setup()
+    end,
+  },
 }
 -- Install plugins
 require("lazy").setup(plugins, {
